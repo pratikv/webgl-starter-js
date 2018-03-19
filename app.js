@@ -1,10 +1,11 @@
 var twgl = require("twgl.js");
+var shaderLoader = require("./shaders");
 
 const canvas = document.getElementById("gl-canvas");
 const gl = canvas.getContext("webgl");
 
-var vss = require('ify-loader!./shaders/basic.vert.glsl');
-var fss = require('ify-loader!./shaders/basic.frag.glsl');
+var vss = shaderLoader("basic.vert.glsl");//require('ify-loader!./shaders/basic.vert.glsl');
+var fss = shaderLoader("basic.frag.glsl")//require('ify-loader!./shaders/basic.frag.glsl');
 
 var progInfo = twgl.createProgramInfo(gl, [vss, fss]);
 
